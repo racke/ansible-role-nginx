@@ -1,0 +1,14 @@
+---
+
+- name: Ensure nginx is installed.
+  package:
+    name: "{{ nginx_package_name }}"
+    state: present
+
+- name: Add directory for snippets
+  file:
+    state: directory
+    path: /etc/nginx/snippets
+    owner: root
+    group: "{{ root_group }}"
+    mode: 0755
