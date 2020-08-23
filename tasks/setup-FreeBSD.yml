@@ -10,6 +10,14 @@
     name: "{{ nginx_package_name }}"
     state: present
 
+- name: Add directory for snippets
+  file:
+    state: directory
+    path: /usr/local/etc/nginx/snippets
+    owner: root
+    group: "{{ root_group }}"
+    mode: 0755
+
 - name: Create logs directory.
   file:
     path: /var/log/nginx
